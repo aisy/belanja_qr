@@ -9,4 +9,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('homepage/homepage_index');
 		$this->load->view('js');
 	}
+
+	public function halaman_utama(){
+		$this->load->view('head');
+		
+	}
+
 }
