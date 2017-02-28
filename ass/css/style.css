@@ -8,6 +8,10 @@ header,
 }
 /* Navigation*/
 
+.header_admin{
+  height: 0px;
+}
+
 .navbar {
     background-color: transparent;
 }

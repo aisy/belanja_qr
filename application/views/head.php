@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="<?= base_url('ass/font-awesome/css/font-awesome.css') ?>">
 
     <link rel="stylesheet" href="<?= base_url('ass/css/bootstrap.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('ass/css/mdb.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('ass/css/mdb.css') ?>">
     <link rel="stylesheet" href="<?= base_url('ass/css/style.css') ?>">
 
   </head>
 
-</html>
+<body class="fixed-sn green-skin">

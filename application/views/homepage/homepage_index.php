@@ -32,6 +32,8 @@
                   <h3><i class="fa fa-user"></i> Login </h3>
                 </div>
 
+                <form action="<?= base_url('welcome/login'); ?> " method="post">
+
                 <!--Body-->
                 <div class="md-form">
                   <i class="fa fa-user prefix"></i>
@@ -46,8 +48,10 @@
                 </div>
 
                 <div class="text-xs-center">
-                  <button class="btn btn-indigo">Login</button>
+                  <button type="submit" class="btn btn-indigo">Login</button>
                 </div>
+
+              </form>
 
               </div>
             </div>
