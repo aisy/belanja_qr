@@ -1,65 +1,49 @@
 <!--Main layout-->
+
 <main>
-    <div class="container-fluid">
+  <div class="container-fluid">
 
-      <div class="col-md-12">
-    <!--First review-->
-    <div class="media mb-1">
-        <a class="media-left waves-light">
-            <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-13.jpg" alt="Generic placeholder image">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">John Doe</h4>
-            <ul class="rating inline-ul">
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
-        </div>
-    </div>
-
-    <!--Second review-->
-    <div class="media mb-1">
-        <a class="media-left waves-light">
-            <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-14.jpg" alt="Generic placeholder image">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Nathan Casie</h4>
-            <ul class="rating inline-ul">
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
-        </div>
-    </div>
-
-    <!--Second review-->
-    <div class="media mb-1">
-        <a class="media-left waves-light">
-            <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-15.jpg" alt="Generic placeholder image">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Dave Snow</h4>
-            <ul class="rating inline-ul">
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star amber-text"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate temporibus iure soluta. Quasi mollitia maxime nemo quam accusamus possimus, voluptatum expedita assumenda. Earum sit id ullam eum vel delectus!</p>
-        </div>
-    </div>
-
-</div>
-
+    <table id="transaksi" class="table table-striped table-hover" cellspacing="0" width="100%">
+      <thead class="thead-inverse">
+        <tr>
+          <th>No.Transaksi</th>
+          <th>Id User</th>
+          <th>Nomor Antrian</th>
+          <th>Status Trasaksi</th>
+          <th>Total Harga</th>
+          <th>Pilihan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($transaksi as $key) { ?>
+          <tr>
+            <td><?= $key->id_transaksi ?></td>
+            <td><?= $key->id_user ?></td>
+            <td><?= $key->no_antrian ?></td>
+            <td><?= $key->id_transaksi ?></td>
+            <td>Rp. <?= $key->total_harga ?></td>
+            <td>
+              <div class="btn-group" data-toggle="buttons">
+                <a href="" class="btn btn-sm btn-success btn-rounded btn-table waves-effect waves-light">
+                  <i class="fa fa-check"></i>
+                </a>
+                <a href="" class="btn btn-sm btn-default btn-rounded btn-table waves-effect waves-light">
+                  <i class="fa fa-list"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
 
     </div>
+
+
+  </div>
 </main>
+
+
+
+
 <!--/Main layout-->
