@@ -49,6 +49,14 @@ header,
     color: #fff
 }
 
+.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #003830;
+    border-color: #003830;
+}
+
 @media (max-width: 992px) {
     .description {
         padding-top: 7rem;

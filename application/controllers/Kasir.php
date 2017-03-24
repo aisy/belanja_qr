@@ -8,9 +8,12 @@ class Kasir extends CI_Controller {
   }
 
   public function index(){
+
+      $data['kasir']=$this->Model_kasir->get();
+
       $this->load->view('head');
       $this->load->view('header');
-      $this->load->view('kasir/kasir');
+      $this->load->view('kasir/kasir',$data);
       $this->load->view('javascript');
   }
 

@@ -15,6 +15,16 @@
     $(".button-collapse").sideNav();
     var el = document.querySelector('.custom-scrollbar');
     Ps.initialize(el);
+
+    $('#modal-register').on('shown.bs.modal', function () {
+      // $('#myInput').focus();
+    });
+
+    $('.datepicker').pickadate({
+      monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+      format: 'yyyy-mm-dd',
+      formatSubmit: 'yyyy/mm/dd',
+    });
 </script>
 
 <script>
