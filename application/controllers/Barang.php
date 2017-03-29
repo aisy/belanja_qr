@@ -27,4 +27,24 @@ class Barang extends CI_Controller{
 
   }
 
+  public function ubah_data($id){
+
+    $data['barang'] = $this->Model_barang->get_id($id);
+
+    $this->load->view('head');
+    $this->load->view('header');
+    $this->load->view('barang/barang_update', $data);
+    $this->load->view('javascript');
+
+    if(isset($_POST['ubah'])){
+      $this->Model_barang->update($id);
+      redirect('barang', 'refresh');
+    }
+  }
+
+  public function hapus_data($id){
+    $hapus = $this->Model_barang->delete($id);
+    redirect('barang', 'refresh');
+  }
+
 }

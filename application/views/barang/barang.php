@@ -24,9 +24,9 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($barang as $key) { ?>
+        <?php $i=1; foreach ($barang as $key) { ?>
           <tr>
-            <td><?= $key->id_barang ?></td>
+            <td><?= $i ?></td>
             <td><?= $key->nama_barang ?></td>
             <td><?= $key->distributor ?></td>
             <td><?= $key->masa_berlaku ?></td>
@@ -45,7 +45,7 @@
 
             </td>
           </tr>
-          <?php } ?>
+          <?php $i++; } ?>
         </tbody>
       </table>
 

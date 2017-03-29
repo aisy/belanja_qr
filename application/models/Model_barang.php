@@ -27,7 +27,7 @@ class Model_barang extends CI_Model {
   // menampilkan data berdasarkan id barang
   public function get_id($id){
     $data = $this->db->get_where('barang', array('id_barang'=>$id));
-    return $data->fisrt_row(); //menampilkan satu data sesuai dengan id data
+    return $data->first_row(); //menampilkan satu data sesuai dengan id data
   }
 
   // update data berdasarkan id barang

@@ -6,7 +6,7 @@
         <!-- Logo -->
         <li>
             <div class="logo-wrapper sn-ad-avatar-wrapper">
-                <img src="http://mdbootstrap.com/images/avatars/img%20(9)" class="img-fluid rounded-circle">
+                <img src="<?= base_url('ass/img/Female.png') ?>" class="img-fluid rounded-circle">
                 <div class="rgba-stylish-strong">
                     <p class="user white-text">Kasir<br><?= $this->session->userdata('nama'); ?></p>
                 </div>

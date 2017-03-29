@@ -57,6 +57,11 @@ header,
     border-color: #003830;
 }
 
+.green-skin .side-nav .logo-wrapper {
+    background: url("../img/shopping-cart-grocery-store-web.jpg") no-repeat center center;
+    background-size: cover;
+}
+
 @media (max-width: 992px) {
     .description {
         padding-top: 7rem;

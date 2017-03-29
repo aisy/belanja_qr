@@ -15,6 +15,7 @@ class Kasir extends CI_Controller {
       $this->load->view('header');
       $this->load->view('kasir/kasir',$data);
       $this->load->view('javascript');
+      $this->load->view('dataTables');
   }
 
 }

@@ -3,17 +3,18 @@
 class Model_user extends CI_Model {
 
   // memasukkan data
-  public function insert(){
+  public function insert($username, $password){
 
     // $data adalah array yang menampung data dari name input $_POST[]
     $data = array(
-      "id_user" => $this->input->post('id_user', TRUE),
-      "nama"     => $this->input->post('nama', TRUE),
-      "ttl"      => $this->input->post('ttl', TRUE),
-      "alamat"   => $this->input->post('alamat', TRUE),
-      "no_hp"    => $this->input->post('no_hp', TRUE),
-      "username" => $this->input->post('username', TRUE),
-      "password" => $this->input->post('password', TRUE)
+      "id_user"   => $this->input->post('id_user', TRUE),
+      "nama"      => $this->input->post('nama', TRUE),
+      "ttl"       => $this->input->post('ttl', TRUE),
+      "alamat"    => $this->input->post('alamat', TRUE),
+      "no_hp"     => $this->input->post('no_hp', TRUE),
+      "no_ktp"    => $this->input->post('no_ktp', TRUE),
+      "username"  => $username,
+      "password"  => $password
     );
     $this->db->insert('pelanggan', $data); //proses menyimpan ke database
   }
@@ -33,12 +34,13 @@ class Model_user extends CI_Model {
   // update data berdasarkan id user
   public function update($id){
     $data = array(
-      "nama"     => $this->input->post('nama', TRUE),
-      "ttl"      => $this->input->post('ttl', TRUE),
-      "alamat"   => $this->input->post('alamat', TRUE),
-      "no_hp"    => $this->input->post('no_hp', TRUE),
-      "username" => $this->input->post('username', TRUE),
-      "password" => $this->input->post('password', TRUE)
+      "nama"      => $this->input->post('nama', TRUE),
+      "ttl"       => $this->input->post('ttl', TRUE),
+      "alamat"    => $this->input->post('alamat', TRUE),
+      "no_hp"     => $this->input->post('no_hp', TRUE),
+      "no_ktp"    => $this->input->post('no_ktp', TRUE),
+      "username"  => $this->input->post('username', TRUE),
+      "password"  => $this->input->post('password', TRUE)
     );
     $this->db->where('id_user', $id); //proses mencari data berdasarkan id
     $this->db->update('pelanggan', $data); //proses update

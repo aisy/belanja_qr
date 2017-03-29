@@ -7,14 +7,9 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $('#transaksi').DataTable();
-} );
-
-	$(document).ready(function() {
   $('#barang').DataTable();
-} );
-
-$(document).ready(function() {
   $('#user').DataTable();
+  $('#kasir').DataTable();
 } );
 
 </script>
