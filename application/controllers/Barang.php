@@ -20,6 +20,21 @@ class Barang extends CI_Controller{
     $this->load->view('dataTables');
   }
 
+  public function get_json($id){
+
+    $data = json_decode(json_encode($this->Model_barang->get_id($id), true));
+
+    // print_r($data);
+
+    $this->output
+        ->set_status_header(201)
+        ->set_content_type('application/json', 'utf-8')
+        ->set_output(json_encode($data, JSON_PRETTY_PRINT))
+        ->_display();
+        exit;
+
+  }
+
 
   public function tambah(){
     // echo $this->input->post('masa_berlaku');
