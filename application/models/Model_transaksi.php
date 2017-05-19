@@ -4,19 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_transaksi extends CI_Model{
 
   // memasukkan data
-  public function insert(){
+  public function insert($data){
+
+    $val = array(
+      "id_transaksi"      => $data['id_transaksi'],
+      "id_user"           => $data['id_user'],
+      "tanggal_transaksi" => $data['tanggal_transaksi'],
+      "no_antrian"        => $data['no_antrian'],
+      "id_kasir"          => $data['id_kasir'],
+      "status_transaksi"  => $data['status_transaksi'],
+      "total_harga"       => $data['total_harga']
+    );
 
     // $data adalah array yang menampung data dari name input $_POST[]
-    $data = array(
-      "id_transaksi" => $this->input->post('id_transaksi', TRUE),
-      "nama"     => $this->input->post('nama', TRUE),
-      "ttl"      => $this->input->post('ttl', TRUE),
-      "alamat"   => $this->input->post('alamat', TRUE),
-      "no_hp"    => $this->input->post('no_hp', TRUE),
-      "username" => $this->input->post('username', TRUE),
-      "password" => $this->input->post('password', TRUE)
-    );
-    $this->db->insert('transaksi', $data); //proses menyimpan ke database
+
+    $this->db->insert('transaksi', $val); //proses menyimpan ke database
   }
 
   // menampilkan data

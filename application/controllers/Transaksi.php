@@ -18,6 +18,19 @@ class Transaksi extends CI_Controller {
       $this->load->view('dataTables');
   }
 
+  // ===========================================================================
+  // SERVICES
+  // ===========================================================================
+
+  public function Post(){
+
+    $dataBarang = json_decode(file_get_contents('php://input'));
+
+    $val2 = $dataBarang->items;
+
+    print_r($val2);
+  }
+
 }
 
 /* End of file ControllerName.php */
