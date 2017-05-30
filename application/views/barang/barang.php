@@ -40,12 +40,12 @@
             <td><?= $key->stok ?></td>
             <td>
 
-                <a href="<?= base_url('barang/ubah_data/'.$key->id_barang) ?>" class="btn btn-sm btn-warning btn-rounded btn-table waves-effect waves-light">
-                  <i class="fa fa-pencil"></i>
-                </a>
-                <a href="<?= base_url('barang/hapus_data/'.$key->id_barang) ?>" class="btn btn-sm btn-danger btn-rounded btn-table waves-effect waves-light">
-                  <i class="fa fa-trash"></i>
-                </a>
+              <a href="<?= base_url('barang/ubah_data/'.$key->id_barang) ?>" class="btn btn-sm btn-warning btn-rounded btn-table waves-effect waves-light">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <a href="<?= base_url('barang/hapus_data/'.$key->id_barang) ?>" class="btn btn-sm btn-danger btn-rounded btn-table waves-effect waves-light">
+                <i class="fa fa-trash"></i>
+              </a>
 
             </td>
           </tr>
@@ -72,13 +72,13 @@
 
             <div class="modal-body">
               <div class="md-form">
-                <input name="nama_barang" type="text" id="form2" class="form-control">
-                <label for="form2">Nama Barang</label>
+                <input name="nama_barang" type="text" id="nama_barang" class="form-control">
+                <label for="nama_barang">Nama Barang</label>
               </div>
 
               <div class="md-form">
-                <input name="distributor" type="text" id="form2" class="form-control">
-                <label for="form2">Distributor</label>
+                <input name="distributor" type="text" id="distributor" class="form-control">
+                <label for="distributor">Distributor</label>
               </div>
 
               <div class="md-form">
@@ -91,27 +91,38 @@
                 <label for="tanggal_masuk">Tanggal Masuk</label>
               </div>
 
-              <div class="md-form">
-                <input name="berat" type="number" id="form2" class="form-control">
-                <label for="form2">Berat</label>
+              <div class="form-inline form-group">
+                <div class="md-form form-group">
+                  <input name="berat" type="number" id="berat" class="form-control">
+                  <label for="berat">Berat</label>
+                </div>
+
+                <div class="md-form form-group">
+                  <select name="satuan" class="mdb-select">
+                    <option value="" disabled selected>Satuan</option>
+                    <option value="gram">Gram</option>
+                    <option value="ml">Ml</option>
+                    <option value="liter">Liter</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="md-form form-group">
+                <input name="harga" type="number" id="harga" class="form-control">
+                <label for="harga">Harga</label>
               </div>
 
               <div class="md-form">
-                <input name="harga" type="number" id="form2" class="form-control">
-                <label for="form2">Harga</label>
+                <input name="stok" type="number" id="stock" class="form-control">
+                <label for="stock">Stok</label>
               </div>
 
-              <div class="md-form">
-                <input name="stok" type="number" id="form2" class="form-control">
-                <label for="form2">Stok</label>
-              </div>
-
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <button name="" type="submit" class="btn btn-success btn-block">Tambah Data</button>
+            </div>
           </div>
-          <!--Footer-->
-          <div class="modal-footer">
-            <button name="" type="submit" class="btn btn-success btn-block">Tambah Data</button>
-          </div>
-        </div>
         </form>
         <!--/.Content-->
       </div>

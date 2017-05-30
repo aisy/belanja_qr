@@ -7,13 +7,13 @@ class Model_transaksi extends CI_Model{
   public function insert($data){
 
     $val = array(
-      "id_transaksi"      => $data['id_transaksi'],
-      "id_user"           => $data['id_user'],
-      "tanggal_transaksi" => $data['tanggal_transaksi'],
-      "no_antrian"        => $data['no_antrian'],
-      "id_kasir"          => $data['id_kasir'],
-      "status_transaksi"  => $data['status_transaksi'],
-      "total_harga"       => $data['total_harga']
+      "id_transaksi"      => $data->id_transaksi,
+      "id_user"           => $data->id_user,
+      "tanggal_transaksi" => $data->tanggal_transaksi,
+      "no_antrian"        => $data->no_antrian,
+      "id_kasir"          => $this->session->userdata('id_kasir'),
+      "status_transaksi"  => "belum di bayar",
+      "total_harga"       => $data->total_harga
     );
 
     // $data adalah array yang menampung data dari name input $_POST[]
@@ -57,6 +57,15 @@ class Model_transaksi extends CI_Model{
   public function delete($id){
     $this->db->where('id_transaksi', $id); //proses mencari data berdasarkan id
     $this->db->delete('transaksi'); //proses hapus
+  }
+
+  // ===========================================================================
+  // DETAIl TRANSAKSI
+  // ===========================================================================
+
+
+  public function insert_detail($data){
+    $this->db->insert_batch('detail_transaksi', $data);
   }
 
 }

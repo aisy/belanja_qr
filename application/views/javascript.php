@@ -20,6 +20,10 @@ $('#modal-register').on('shown.bs.modal', function () {
   // $('#myInput').focus();
 });
 
+$(document).ready(function() {
+  $('.mdb-select').material_select();
+});
+
 $('.datepicker').pickadate({
   monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
   format: 'yyyy-mm-dd',

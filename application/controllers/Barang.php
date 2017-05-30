@@ -39,7 +39,7 @@ class Barang extends CI_Controller{
   public function tambah(){
     // echo $this->input->post('masa_berlaku');
     $this->Model_barang->insert();
-
+    redirect('barang', 'refresh');
   }
 
   public function ubah_data($id){
@@ -52,6 +52,7 @@ class Barang extends CI_Controller{
     $this->load->view('javascript');
 
     if(isset($_POST['ubah'])){
+      // echo $id;
       $this->Model_barang->update($id);
       redirect('barang', 'refresh');
     }

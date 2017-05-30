@@ -32,10 +32,33 @@ public function __construct(){
     $password = $tgl[0].$tgl[1].$tgl[2].$nama_awal;
 
     $this->Model_user->insert($username, $password);
+    redirect('User', 'refresh');
+  }
 
-    
+  public function update($id){
+
+    $data['update'] = $this->Model_user->get_id($id);
+
+    print_r($data['update']);
+
+    if(isset($_POST['update'])){
+      $this->Model_user->update($id);
+      redirect('User', 'refresh');
+    }
+
+    $this->load->view('head');
+    $this->load->view('header');
+    $this->load->view('user/user_update', $data);
+    $this->load->view('javascript');
 
   }
+
+  public function hapus($id){
+    $this->Model_user->delete($id);
+    redirect('User', 'refresh');
+  }
+
+
 }
 
 /* End of file controllername.php */

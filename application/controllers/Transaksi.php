@@ -28,7 +28,11 @@ class Transaksi extends CI_Controller {
 
     $val2 = $dataBarang->items;
 
-    print_r($val2);
+    $this->Model_transaksi->insert($dataBarang);
+    // $this->Model_transaksi->insert_detail($val2);
+
+    print_r($dataBarang);
+    // print_r($val2);
   }
 
 }

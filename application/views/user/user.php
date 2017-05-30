@@ -31,11 +31,11 @@
             <td><?= $key->no_ktp ?></td>
             <td><?= $key->username ?></td>
             <td>
-              <a href="" class="btn btn-sm btn-success btn-rounded btn-table waves-effect waves-light">
-                <i class="fa fa-check"></i>
+              <a href="<?= base_url('user/update/'.$key->id_user) ?>" class="btn btn-sm btn-warning btn-rounded btn-table waves-effect waves-light">
+                <i class="fa fa-edit"></i>
               </a>
-              <a href="" class="btn btn-sm btn-default btn-rounded btn-table waves-effect waves-light">
-                <i class="fa fa-list"></i>
+              <a href="<?= base_url('user/hapus/'.$key->id_user) ?>" class="btn btn-sm btn-danger btn-rounded btn-table waves-effect waves-light">
+                <i class="fa fa-trash"></i>
               </a>
             </td>
           </tr>

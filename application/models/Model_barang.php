@@ -12,6 +12,7 @@ class Model_barang extends CI_Model {
       "masa_berlaku"           => $this->input->post('masa_berlaku', TRUE),
       "tanggal_masuk_barang"   => $this->input->post('tanggal_masuk_barang', TRUE),
       "berat"                  => $this->input->post('berat', TRUE),
+      "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
       "stok"                   => $this->input->post('stok', TRUE)
     );
@@ -33,12 +34,12 @@ class Model_barang extends CI_Model {
   // update data berdasarkan id barang
   public function update($id){
     $data = array(
-      "id_barang"              => $this->input->post('id_barang', TRUE),
       "nama_barang"            => $this->input->post('nama_barang', TRUE),
       "distributor"            => $this->input->post('distributor', TRUE),
       "masa_berlaku"           => $this->input->post('masa_berlaku', TRUE),
       "tanggal_masuk_barang"   => $this->input->post('tanggal_masuk_barang', TRUE),
       "berat"                  => $this->input->post('berat', TRUE),
+      "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
       "stok"                   => $this->input->post('stok', TRUE)
     );

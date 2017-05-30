@@ -23,9 +23,20 @@
           <label for="tanggal_masuk">Tanggal Masuk</label>
         </div>
 
-        <div class="md-form">
-          <input name="berat" type="number" id="form2" class="form-control" value="<?= $barang->berat ?>">
-          <label for="form2">Berat</label>
+        <div class="form-inline form-group">
+          <div class="md-form form-group">
+            <input name="berat" type="number" id="form2" class="form-control" value="<?= $barang->berat ?>">
+            <label for="form2">Berat</label>
+          </div>
+
+          <div class="md-form form-group">
+            <select name="satuan" class="mdb-select">
+              <option value="<?= $barang->satuan ?>" selected><?= $barang->satuan ?></option>
+              <option value="gram">Gram</option>
+              <option value="ml">Ml</option>
+              <option value="liter">Liter</option>
+            </select>
+          </div>
         </div>
 
         <div class="md-form">
@@ -38,8 +49,8 @@
           <label for="form2">Stok</label>
         </div>
 
-      <button name="ubah" type="submit" class="btn btn-success btn-block">Ubah Data</button>
+        <button name="ubah" type="submit" class="btn btn-success btn-block">Ubah Data</button>
 
-    </form>
-  </div>
-</main>
+      </form>
+    </div>
+  </main>
