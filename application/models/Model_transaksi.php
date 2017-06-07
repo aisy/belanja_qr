@@ -6,6 +6,8 @@ class Model_transaksi extends CI_Model{
   // memasukkan data
   public function insert($data){
 
+    
+
     $val = array(
       "id_transaksi"      => $data->id_transaksi,
       "id_user"           => $data->id_user,
