@@ -4,15 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_transaksi extends CI_Model{
 
   // memasukkan data
-  public function insert($data){
-
-    
+  public function insert($data, $antri){
 
     $val = array(
-      "id_transaksi"      => $data->id_transaksi,
+      // "id_transaksi"      => $id_transaksi,
       "id_user"           => $data->id_user,
       "tanggal_transaksi" => $data->tanggal_transaksi,
-      "no_antrian"        => $data->no_antrian,
+      "no_antrian"        => $antri,
       "id_kasir"          => $this->session->userdata('id_kasir'),
       "status_transaksi"  => "belum di bayar",
       "total_harga"       => $data->total_harga
@@ -67,7 +65,24 @@ class Model_transaksi extends CI_Model{
 
 
   public function insert_detail($data){
-    $this->db->insert_batch('detail_transaksi', $data);
+
+    $this->db->order_by('id_transaksi', 'desc');
+    $this->db->from('transaksi');
+    $data_transaksi = $this->db->get()->first_row();
+
+    $id_transaksi = $data_transaksi->id_transaksi;
+
+    foreach ($data as $key) {
+      $real = array(
+        // "id_detail"      => $key->,
+        "id_transaksi"   => $id_transaksi,
+        "id_barang"      => $key->id_barang,
+        "harga_barang"   => $key->harga_barang,
+        "jumlah_barang"  => $key->jumlah_barang
+      );
+      $this->db->insert('detail_transaksi', $real);
+    }
+    // $this->db->insert_batch('detail_transaksi', $data);
   }
 
 }

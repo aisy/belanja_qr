@@ -5,6 +5,7 @@ class Transaksi extends CI_Controller {
   public function __construct(){
     parent::__construct();
     $this->load->model('Model_transaksi');
+    $this->load->model('Model_antrian');
   }
 
   public function index(){
@@ -28,13 +29,15 @@ class Transaksi extends CI_Controller {
 
     $val2 = $dataBarang->items;
 
-    $this->Model_transaksi->insert($dataBarang);
-    // $this->Model_transaksi->insert_detail($val2);
+    $antri = $this->Model_antrian->post();
+
+    $this->Model_transaksi->insert($dataBarang, $antri);
+    $this->Model_transaksi->insert_detail($val2);
 
     // print_r($dataBarang);
     // print_r($val2);
 
-    echo json_encode(array('staus'=>'sukses'));
+    echo json_encode(array('status'=>'sukses'));
   }
 
 }
