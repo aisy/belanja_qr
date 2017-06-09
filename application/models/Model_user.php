@@ -63,6 +63,15 @@ class Model_user extends CI_Model {
     $this->db->delete('pelanggan'); //proses hapus
   }
 
+  public function login($data){
+    $username = $data->username;
+    $password = $data->password;
+
+    $data = $this->db->get_where('pelanggan', array('username'=>$username,'password'=>$password));
+
+    return $data->first_row();
+  }
+
 }
 
 /* End of file Model_user.php */

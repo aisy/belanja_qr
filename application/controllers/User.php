@@ -58,6 +58,20 @@ public function __construct(){
     redirect('User', 'refresh');
   }
 
+  // API login
+  public function login(){
+
+    $dataLogin = json_decode(file_get_contents('php://input'));
+
+    $data = $this->Model_user->login($dataLogin);
+
+    $this->output
+      ->set_status_header(200)
+      ->set_content_type('application/json', 'utf-8')
+      ->set_output(json_encode($data, JSON_PRETTY_PRINT))
+      ->_display();
+      exit;
+  }
 
 }
 
