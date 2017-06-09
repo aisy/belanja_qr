@@ -74,6 +74,14 @@ class Model_transaksi extends CI_Model{
   // DETAIl TRANSAKSI
   // ===========================================================================
 
+  public function get_detail($id){
+
+    $data = $this->db->get_where('detail_transaksi', array(
+      'id_transaksi'=>$id
+    ));
+
+    return $data->result();
+  }
 
   public function insert_detail($data){
 
