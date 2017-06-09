@@ -39,6 +39,17 @@ class Model_transaksi extends CI_Model{
     return $data->fisrt_row(); //menampilkan satu data sesuai dengan id data
   }
 
+  // menampilkan data berdasarkan id user
+  public function get_history($id){
+
+    $this->db->order_by('id_transaksi', 'desc');
+    $this->db->from('transaksi');
+    $this->db->where('id_user', $id);
+    $data = $this->db->get();
+
+    return $data->result(); //menampilkan satu data sesuai dengan id data
+  }
+
   // update data berdasarkan id transaksi
   public function update($id){
     $data = array(
