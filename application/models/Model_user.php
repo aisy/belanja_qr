@@ -72,6 +72,31 @@ class Model_user extends CI_Model {
     return $data->first_row();
   }
 
+  public function update_api($id, $data){
+
+    // // username generator
+    // $nama = strtolower($data->nama);
+    // $nama_pisah = explode(" ", $nama);
+    // $username = $nama_pisah[0].substr($nama_pisah[1], 0,2);
+    //
+    // // password generator
+    // $nama_awal = strtoupper(substr($nama_pisah[0], 0,2));
+    // $tgl = explode("-", $data->ttl);
+    // $password = $tgl[0].$tgl[1].$tgl[2].$nama_awal;
+
+    $update = array(
+      "nama"      => $data->nama,
+      "ttl"       => $data->ttl,
+      "alamat"    => $data->alamat,
+      "no_hp"     => $data->no_hp,
+      "no_ktp"    => $data->no_ktp,
+      "username"  => $data->username,
+      "password"  => $data->password
+    );
+    $this->db->where('id_user', $id); //proses mencari data berdasarkan id
+    $this->db->update('pelanggan', $update); //proses update
+  }
+
 }
 
 /* End of file Model_user.php */

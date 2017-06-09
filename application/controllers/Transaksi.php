@@ -37,7 +37,12 @@ class Transaksi extends CI_Controller {
     // print_r($dataBarang);
     // print_r($val2);
 
-    echo json_encode(array('status'=>'sukses','nomor_antrian'=>$antri));
+    echo json_encode(
+      array(
+        'status'=>'sukses',
+        'nomor_antrian'=>$antri,
+        'tanggal_transaksi'=>date("Y-m-d"))
+    );
   }
 
 }

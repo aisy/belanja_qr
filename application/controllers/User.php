@@ -86,6 +86,14 @@ public function __construct(){
 
   }
 
+  public function patch_user($id){
+    $dataUser = json_decode(file_get_contents('php://input'));
+
+    $this->Model_user->update_api($id, $dataUser);
+
+    
+  }
+
 }
 
 /* End of file controllername.php */
