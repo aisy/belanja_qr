@@ -6,7 +6,9 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $('#transaksi').DataTable();
+  $('#transaksi').DataTable({
+    "order": [[ 0, "desc" ]]
+  });
   $('#barang').DataTable();
   $('#user').DataTable();
   $('#kasir').DataTable();

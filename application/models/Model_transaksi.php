@@ -9,7 +9,7 @@ class Model_transaksi extends CI_Model{
     $val = array(
       // "id_transaksi"      => $id_transaksi,
       "id_user"           => $data->id_user,
-      "tanggal_transaksi" => $data->tanggal_transaksi,
+      "tanggal_transaksi" => date('Y-m-d'),
       "no_antrian"        => $antri,
       "id_kasir"          => $this->session->userdata('id_kasir'),
       "status_transaksi"  => "belum di bayar",
@@ -28,7 +28,12 @@ class Model_transaksi extends CI_Model{
   }
 
   public function transaksi_belum(){
-    $data = $this->db->get_where('transaksi', array('status_transaksi'=>'belum', 'tanggal_transaksi'=>date('Y-m-d')));
+
+    $this->db->order_by('id_transaksi', 'desc');
+    $this->db->from('transaksi');
+    $this->db->where('status_transaksi', "belum di bayar");
+    $this->db->where('tanggal_transaksi', date('Y-m-d'));
+    $data = $this->db->get();
 
     return $data->result();
   }
@@ -36,7 +41,7 @@ class Model_transaksi extends CI_Model{
   // menampilkan data berdasarkan id transaksi
   public function get_id($id){
     $data = $this->db->get_where('transaksi', array('id_transaksi'=>$id));
-    return $data->fisrt_row(); //menampilkan satu data sesuai dengan id data
+    return $data->first_row(); //menampilkan satu data sesuai dengan id data
   }
 
   // menampilkan data berdasarkan id user

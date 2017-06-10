@@ -10,8 +10,8 @@ class Transaksi extends CI_Controller {
 
   public function index(){
 
-
     $data['transaksi'] = $this->Model_transaksi->transaksi_belum();
+
       $this->load->view('head');
       $this->load->view('header');
       $this->load->view('transaksi/transaksi', $data);
@@ -59,7 +59,10 @@ class Transaksi extends CI_Controller {
   }
 
   public function detail_transaksi($id){
-    $data = $this->Model_transaksi->get_detail($id);
+    $data = array(
+        "content"=>$this->Model_transaksi->get_id($id),
+        "detail"=>$this->Model_transaksi->get_detail($id)
+    );
 
     $this->output
       ->set_status_header(200)
