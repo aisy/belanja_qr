@@ -91,7 +91,10 @@ public function __construct(){
 
     $this->Model_user->update_api($id, $dataUser);
 
-    
+    echo json_encode(
+      array(
+        'status'=>'sukses')
+    );
   }
 
 }

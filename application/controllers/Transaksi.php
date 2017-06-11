@@ -19,6 +19,24 @@ class Transaksi extends CI_Controller {
       $this->load->view('dataTables');
   }
 
+  public function detail($id){
+    $data['transaksi'] = $this->Model_transaksi->get_detail($id);
+
+    $this->load->view('head');
+    $this->load->view('header');
+    $this->load->view('transaksi/detail_transaksi', $data);
+    $this->load->view('javascript');
+    // $this->load->view('dataTables');
+  }
+
+  public function confirm($id){
+
+    // if(isset($_POST['konfirmasi'])){
+        $update = $this->Model_transaksi->konfirmasi($id);
+    // }
+    redirect('Transaksi', 'refresh');
+  }
+
   // ===========================================================================
   // SERVICES
   // ===========================================================================

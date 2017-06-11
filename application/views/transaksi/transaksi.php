@@ -20,14 +20,14 @@
             <td><?= $key->id_transaksi ?></td>
             <td><?= $key->id_user ?></td>
             <td><?= $key->no_antrian ?></td>
-            <td><?= $key->id_transaksi ?></td>
+            <td><?= $key->status_transaksi ?></td>
             <td>Rp. <?= $key->total_harga ?></td>
             <td>
-              <div class="btn-group" data-toggle="buttons">
-                <a href="" class="btn btn-sm btn-success btn-rounded btn-table waves-effect waves-light">
+              <div class="btn-group">
+                <a href="<?= base_url('Transaksi/confirm/'.$key->id_transaksi) ?>" class="btn btn-sm btn-success btn-rounded btn-table waves-effect waves-light">
                   <i class="fa fa-check"></i>
                 </a>
-                <a href="" class="btn btn-sm btn-default btn-rounded btn-table waves-effect waves-light">
+                <a href="<?= base_url('Transaksi/detail/'.$key->id_transaksi) ?>" class="btn btn-sm btn-default btn-rounded btn-table waves-effect waves-light">
                   <i class="fa fa-list"></i>
                 </a>
               </div>

@@ -10,6 +10,7 @@ class Model_user extends CI_Model {
       "id_user"   => $this->input->post('id_user', TRUE),
       "nama"      => $this->input->post('nama', TRUE),
       "ttl"       => $this->input->post('ttl', TRUE),
+      "email"     => $this->input->post('email', TRUE),
       "alamat"    => $this->input->post('alamat', TRUE),
       "no_hp"     => $this->input->post('no_hp', TRUE),
       "no_ktp"    => $this->input->post('no_ktp', TRUE),
@@ -47,6 +48,7 @@ class Model_user extends CI_Model {
     $data = array(
       "nama"      => $this->input->post('nama', TRUE),
       "ttl"       => $this->input->post('ttl', TRUE),
+      "email"     => $this->input->post('email', TRUE),
       "alamat"    => $this->input->post('alamat', TRUE),
       "no_hp"     => $this->input->post('no_hp', TRUE),
       "no_ktp"    => $this->input->post('no_ktp', TRUE),
@@ -87,6 +89,7 @@ class Model_user extends CI_Model {
     $update = array(
       "nama"      => $data->nama,
       "ttl"       => $data->ttl,
+      "email"     => $data->email,
       "alamat"    => $data->alamat,
       "no_hp"     => $data->no_hp,
       "no_ktp"    => $data->no_ktp,

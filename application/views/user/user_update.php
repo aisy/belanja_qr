@@ -9,6 +9,11 @@
         </div>
 
         <div class="md-form">
+          <input name="email" type="text" id="nama" class="form-control" value="<?= $update->email ?>">
+          <label for="nama">email</label>
+        </div>
+
+        <div class="md-form">
           <textarea type="text" name="alamat" id="alamat" class="md-textarea"><?= $update->alamat ?></textarea>
           <label for="alamat">Alamat</label>
         </div>

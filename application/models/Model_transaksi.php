@@ -11,7 +11,7 @@ class Model_transaksi extends CI_Model{
       "id_user"           => $data->id_user,
       "tanggal_transaksi" => date('Y-m-d'),
       "no_antrian"        => $antri,
-      "id_kasir"          => $this->session->userdata('id_kasir'),
+      // "id_kasir"          => $this->session->userdata('id_kasir'),
       "status_transaksi"  => "belum di bayar",
       "total_harga"       => $data->total_harga
     );
@@ -32,7 +32,7 @@ class Model_transaksi extends CI_Model{
     $this->db->order_by('id_transaksi', 'desc');
     $this->db->from('transaksi');
     $this->db->where('status_transaksi', "belum di bayar");
-    $this->db->where('tanggal_transaksi', date('Y-m-d'));
+    // $this->db->where('tanggal_transaksi', date('Y-m-d'));
     $data = $this->db->get();
 
     return $data->result();
@@ -75,15 +75,28 @@ class Model_transaksi extends CI_Model{
     $this->db->delete('transaksi'); //proses hapus
   }
 
+
+  public function konfirmasi($id){
+    $data = array(
+      "id_kasir"          => $this->session->userdata('id_kasir'),
+      "status_transaksi"  => "sudah di bayar"
+    );
+
+    $this->db->where('id_transaksi', $id);
+    $this->db->update('transaksi', $data);
+  }
+
   // ===========================================================================
   // DETAIl TRANSAKSI
   // ===========================================================================
 
   public function get_detail($id){
 
-    $data = $this->db->get_where('detail_transaksi', array(
-      'id_transaksi'=>$id
-    ));
+    $this->db->from('detail_transaksi');
+    // $this->db->join('transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi');
+    $this->db->join('barang', 'barang.id_barang = detail_transaksi.id_barang');
+    $this->db->where('detail_transaksi.id_transaksi', $id);
+    $data = $this->db->get();
 
     return $data->result();
   }
