@@ -68,7 +68,7 @@
             <h3 class="w-100"><i class="fa fa-plus-circle"></i> Tambah Barang</h3>
           </div>
           <!--Body-->
-          <form class="" action="<?= base_url('barang/tambah') ?>" method="post">
+          <form class="" action="<?= base_url('barang/tambah') ?>" method="post" enctype="multipart/form-data">
 
             <div class="modal-body">
               <div class="md-form">
@@ -115,6 +115,18 @@
               <div class="md-form">
                 <input name="stok" type="number" id="stock" class="form-control">
                 <label for="stock">Stok</label>
+              </div>
+
+              <div class="md-form">
+                <div class="file-field">
+                  <div class="btn btn-primary btn-sm">
+                    <span>Choose file</span>
+                    <input type="file" name="gambar-upload">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" name="gambar" type="text" placeholder="Upload your file">
+                  </div>
+                </div>
               </div>
 
             </div>

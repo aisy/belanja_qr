@@ -14,7 +14,8 @@ class Model_barang extends CI_Model {
       "berat"                  => $this->input->post('berat', TRUE),
       "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
-      "stok"                   => $this->input->post('stok', TRUE)
+      "stok"                   => $this->input->post('stok', TRUE),
+      "gambar"                 => $this->input->post('gambar')
     );
     $this->db->insert('barang', $data); //proses menyimpan ke database
   }
@@ -41,7 +42,8 @@ class Model_barang extends CI_Model {
       "berat"                  => $this->input->post('berat', TRUE),
       "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
-      "stok"                   => $this->input->post('stok', TRUE)
+      "stok"                   => $this->input->post('stok', TRUE),
+      "gambar"                 => $this->input->post('gambar', TRUE)
     );
     $this->db->where('id_barang', $id); //proses mencari data berdasarkan id
     $this->db->update('barang', $data); //proses update

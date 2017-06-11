@@ -1,6 +1,6 @@
 <main>
   <div class="col-md-8 offset-md-2">
-    <form class="" action=" " method="post">
+    <form class="" action=" " method="post" enctype="multipart/form-data">
 
       <div class="modal-body">
         <div class="md-form">
@@ -47,6 +47,23 @@
         <div class="md-form">
           <input name="stok" type="number" id="form2" class="form-control" value="<?= $barang->stok ?>">
           <label for="form2">Stok</label>
+        </div>
+
+        <div class="md-form">
+          <input name="stok" type="number" id="form2" class="form-control" value="<?= $barang->stok ?>">
+          <label for="form2">Stok</label>
+        </div>
+
+        <div class="md-form">
+          <div class="file-field">
+            <div class="btn btn-primary btn-sm">
+              <span>Choose file</span>
+              <input type="file" name="gambar-upload">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" name="gambar" type="text" placeholder="Upload your file">
+            </div>
+          </div>
         </div>
 
         <button name="ubah" type="submit" class="btn btn-success btn-block">Ubah Data</button>

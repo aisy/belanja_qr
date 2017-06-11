@@ -27,17 +27,35 @@ class Barang extends CI_Controller{
     // print_r($data);
 
     $this->output
-        ->set_status_header(201)
-        ->set_content_type('application/json', 'utf-8')
-        ->set_output(json_encode($data, JSON_PRETTY_PRINT))
-        ->_display();
-        exit;
+    ->set_status_header(201)
+    ->set_content_type('application/json', 'utf-8')
+    ->set_output(json_encode($data, JSON_PRETTY_PRINT))
+    ->_display();
+    exit;
 
   }
 
 
   public function tambah(){
     // echo $this->input->post('masa_berlaku');
+
+    $config['upload_path'] = './gambar_produk/';
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['max_size']  = '10000';
+    // $config['max_width']  = '1024';
+    // $config['max_height']  = '768';
+
+    $this->load->library('upload', $config);
+
+    if ( ! $this->upload->do_upload('gambar-upload')){
+      $error = array('error' => $this->upload->display_errors());
+      // print_r($error);
+    }
+    else{
+      $data = array('upload_data' => $this->upload->data());
+      // echo "success";
+    }
+
     $this->Model_barang->insert();
     redirect('barang', 'refresh');
   }
