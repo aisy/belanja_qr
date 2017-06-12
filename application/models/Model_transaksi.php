@@ -119,6 +119,8 @@ class Model_transaksi extends CI_Model{
       );
       $this->db->insert('detail_transaksi', $real);
     }
+
+    return $data_transaksi;
     // $this->db->insert_batch('detail_transaksi', $data);
   }
 

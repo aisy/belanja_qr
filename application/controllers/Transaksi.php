@@ -52,14 +52,21 @@ class Transaksi extends CI_Controller {
     $this->Model_transaksi->insert($dataBarang, $antri);
     $this->Model_transaksi->insert_detail($val2);
 
+    $this->db->order_by('id_transaksi', 'desc');
+    $this->db->from('transaksi');
+    $data_transaksi = $this->db->get()->first_row();
+
+    $id_transaksi = $data_transaksi->id_transaksi;
+
     // print_r($dataBarang);
     // print_r($val2);
 
     echo json_encode(
       array(
-        'status'=>'sukses',
-        'nomor_antrian'=>$antri,
-        'tanggal_transaksi'=>date("Y-m-d"))
+        'status'            =>'sukses',
+        'id_transaksi'      => $id_transaksi,
+        'nomor_antrian'     => $antri,
+        'tanggal_transaksi' => date("Y-m-d"))
     );
   }
 
