@@ -56,23 +56,26 @@ class Barang extends CI_Controller{
       // echo "success";
     }
 
+    // proses upload data barang
     $this->Model_barang->insert();
 
+    // cek id_barang
     $this->db->order_by('id_barang', 'desc');
     $this->db->from('barang');
     $data_barang = $this->db->get()->first_row();
 
     $id_barang = $data_barang->id_barang;
 
+    // library qr code
     $this->load->library('ciqrcode');
 
-    $params['data'] = $id_barang;
+    $params['data'] = base_url('barang/get_json/').$id_barang;
     $params['level'] = 'H';
     $params['size'] = 10;
     $params['savename'] = FCPATH.'qrcode/'.$id_barang.'.png';
     $this->ciqrcode->generate($params);
 
-    redirect('barang', 'refresh');
+    // redirect('barang', 'refresh');
   }
 
   public function ubah_data($id){
