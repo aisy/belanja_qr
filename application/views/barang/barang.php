@@ -30,7 +30,8 @@
             <td><?= $i ?></td>
             <td><?= $key->nama_barang ?></td>
             <td>
-              <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= base_url('barang/get_json/').$key->id_barang ?>&amp;size=100x100" alt="" title="" />
+              <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= base_url('barang/get_json/').$key->id_barang ?>&amp;size=100x100" alt="" title="" /> -->
+              <img src="<?= base_url('qrcode/'.$key->id_barang.'.png') ?>" alt="">
             </td>
             <td><?= $key->distributor ?></td>
             <td><?= $key->masa_berlaku ?></td>

@@ -37,8 +37,8 @@ class Barang extends CI_Controller{
 
 
   public function tambah(){
-    // echo $this->input->post('masa_berlaku');
 
+    // upload image
     $config['upload_path'] = './gambar_produk/';
     $config['allowed_types'] = 'gif|jpg|png';
     $config['max_size']  = '10000';
@@ -57,6 +57,21 @@ class Barang extends CI_Controller{
     }
 
     $this->Model_barang->insert();
+
+    $this->db->order_by('id_barang', 'desc');
+    $this->db->from('barang');
+    $data_barang = $this->db->get()->first_row();
+
+    $id_barang = $data_barang->id_barang;
+
+    $this->load->library('ciqrcode');
+
+    $params['data'] = $id_barang;
+    $params['level'] = 'H';
+    $params['size'] = 10;
+    $params['savename'] = FCPATH.'qrcode/'.$id_barang.'.png';
+    $this->ciqrcode->generate($params);
+
     redirect('barang', 'refresh');
   }
 
@@ -72,22 +87,22 @@ class Barang extends CI_Controller{
     if(isset($_POST['ubah'])){
       // echo $id;
 
-          $config['upload_path'] = './gambar_produk/';
-          $config['allowed_types'] = 'gif|jpg|png';
-          $config['max_size']  = '10000';
-          // $config['max_width']  = '1024';
-          // $config['max_height']  = '768';
+      $config['upload_path'] = './gambar_produk/';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size']  = '10000';
+      // $config['max_width']  = '1024';
+      // $config['max_height']  = '768';
 
-          $this->load->library('upload', $config);
+      $this->load->library('upload', $config);
 
-          if ( ! $this->upload->do_upload('gambar-upload')){
-            $error = array('error' => $this->upload->display_errors());
-            // print_r($error);
-          }
-          else{
-            $data = array('upload_data' => $this->upload->data());
-            // echo "success";
-          }
+      if ( ! $this->upload->do_upload('gambar-upload')){
+        $error = array('error' => $this->upload->display_errors());
+        // print_r($error);
+      }
+      else{
+        $data = array('upload_data' => $this->upload->data());
+        // echo "success";
+      }
 
       $this->Model_barang->update($id);
       redirect('barang', 'refresh');
