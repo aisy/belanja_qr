@@ -75,7 +75,7 @@ class Barang extends CI_Controller{
     $params['savename'] = FCPATH.'qrcode/'.$id_barang.'.png';
     $this->ciqrcode->generate($params);
 
-    // redirect('barang', 'refresh');
+    redirect('barang', 'refresh');
   }
 
   public function ubah_data($id){

@@ -8,6 +8,16 @@ class Transaksi extends CI_Controller {
     $this->load->model('Model_antrian');
   }
 
+  public function Semua(){
+    $data['transaksi'] = $this->Model_transaksi->get();
+
+      $this->load->view('head');
+      $this->load->view('header');
+      $this->load->view('transaksi/transaksi', $data);
+      $this->load->view('javascript');
+      $this->load->view('dataTables');
+  }
+
   public function index(){
 
     $data['transaksi'] = $this->Model_transaksi->transaksi_belum();
