@@ -13,7 +13,7 @@ class Transaksi extends CI_Controller {
 
       $this->load->view('head');
       $this->load->view('header');
-      $this->load->view('transaksi/transaksi', $data);
+      $this->load->view('transaksi/all_transaksi', $data);
       $this->load->view('javascript');
       $this->load->view('dataTables');
   }
