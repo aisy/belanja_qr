@@ -15,6 +15,7 @@ class Model_barang extends CI_Model {
       "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
       "stok"                   => $this->input->post('stok', TRUE),
+      "stok_gudang"            => $this->input->post('stok_gudang', TRUE),
       "gambar"                 => $this->input->post('gambar')
     );
     $this->db->insert('barang', $data); //proses menyimpan ke database
@@ -43,6 +44,25 @@ class Model_barang extends CI_Model {
       "satuan"                 => $this->input->post('satuan', TRUE),
       "harga"                  => $this->input->post('harga', TRUE),
       "stok"                   => $this->input->post('stok', TRUE),
+      "stok_gudang"            => $this->input->post('stok_gudang', TRUE),
+      "gambar"                 => $this->input->post('gambar', TRUE)
+    );
+    $this->db->where('id_barang', $id); //proses mencari data berdasarkan id
+    $this->db->update('barang', $data); //proses update
+  }
+
+  // update data berdasarkan id barang
+  public function update_stok($id){
+    $data = array(
+      "nama_barang"            => $this->input->post('nama_barang', TRUE),
+      "distributor"            => $this->input->post('distributor', TRUE),
+      "masa_berlaku"           => $this->input->post('masa_berlaku', TRUE),
+      "tanggal_masuk_barang"   => $this->input->post('tanggal_masuk_barang', TRUE),
+      "berat"                  => $this->input->post('berat', TRUE),
+      "satuan"                 => $this->input->post('satuan', TRUE),
+      "harga"                  => $this->input->post('harga', TRUE),
+      "stok"                   => $this->input->post('stok', TRUE),
+      "stok_gudang"            => $this->input->post('stok_gudang', TRUE),
       "gambar"                 => $this->input->post('gambar', TRUE)
     );
     $this->db->where('id_barang', $id); //proses mencari data berdasarkan id

@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Model_kasir');
+		$this->load->model('Model_pengelola');
 	}
 
 	public function index(){
@@ -17,7 +18,6 @@ class Welcome extends CI_Controller {
 
 	public function halaman_utama(){
 		$this->load->view('head');
-
 	}
 
 	public function login(){
@@ -31,13 +31,39 @@ class Welcome extends CI_Controller {
 
 			$array = array(
 				'id_kasir' => $log->id_kasir,
-				'nama'		 => $log->nama,
+				'nama'	   => $log->nama,
 				'username' => $log->username
 			);
 
 			$this->session->set_userdata($array);
 
 			redirect('Transaksi', 'refresh');
+
+		}else{
+
+			echo "username atau password salah";
+		}
+
+	}
+
+	public function login2(){
+		# code...
+		$log = $this->Model_pengelola->login();
+
+		// print_r($log);
+
+		if(count($log)>=1){
+			echo "login sukses";
+
+			$array = array(
+				'id_pengelola' => $log->id_kasir,
+				'nama' 		   => $log->nama,
+				'username' 	   => $log->username
+			);
+
+			$this->session->set_userdata($array);
+
+			redirect('Gudang', 'refresh');
 
 		}else{
 

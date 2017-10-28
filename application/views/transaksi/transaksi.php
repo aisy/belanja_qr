@@ -3,7 +3,9 @@
 <main>
   <div class="container-fluid">
 
+  <div class="center text-xs-center">
     <a href="<?= base_url('Transaksi/semua') ?>" class="btn btn-info">Semua Transaksi</a>
+  </div>
 
     <table id="transaksi" class="table table-striped table-hover" cellspacing="0" width="100%">
       <thead class="thead-inverse">

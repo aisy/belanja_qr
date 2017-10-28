@@ -3,7 +3,7 @@
 <main>
   <div class="container-fluid">
 
-    <div class="text-xs-center">
+    <div class="center text-xs-center">
       <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-register">
         <i class="fa fa-plus-circle"></i> Tambah Barang
       </button>
@@ -14,13 +14,12 @@
         <tr>
           <th>#</th>
           <th>Nama</th>
-          <th>Gambar</th>
           <th>Distributor</th>
           <th>Masa Berlaku</th>
           <th>Tgl Masuk</th>
           <th>Berat</th>
           <th>Harga</th>
-          <th>Stok</th>
+          <th>Stok Toko</th>
           <th>Pilihan</th>
         </tr>
       </thead>
@@ -29,16 +28,16 @@
           <tr>
             <td><?= $i ?></td>
             <td><?= $key->nama_barang ?></td>
-            <td>
-              <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= base_url('barang/get_json/').$key->id_barang ?>&amp;size=100x100" alt="" title="" /> -->
+            <!-- <td>
+              
               <img src="<?= base_url('qrcode/'.$key->id_barang.'.png') ?>" alt="">
-            </td>
+            </td> -->
             <td><?= $key->distributor ?></td>
             <td><?= $key->masa_berlaku ?></td>
             <td><?= $key->tanggal_masuk_barang?></td>
             <td><?= $key->berat ?></td>
             <td>Rp. <?= $key->harga ?></td>
-            <td><?= $key->stok ?></td>
+            <td><?= $key->stok_toko ?></td>
             <td>
 
               <a href="<?= base_url('barang/ubah_data/'.$key->id_barang) ?>" class="btn btn-sm btn-warning btn-rounded btn-table waves-effect waves-light">

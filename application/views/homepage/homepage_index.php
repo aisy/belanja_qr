@@ -27,31 +27,80 @@
             <div class="card">
               <div class="card-block">
 
-                <!--Header-->
-                <div class="form-header blue-gradient">
-                  <h3><i class="fa fa-user"></i> Login </h3>
-                </div>
+                <!-- Nav tabs -->
+<ul class="nav nav-tabs tabs-2 indigo" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab">
+          <i class="fa fa-shopping-basket"></i> Login Kasir
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel6" role="tab">
+          <i class="fa fa-cubes"></i> Login Gudang
+        </a>
+    </li>
+</ul>
 
-                <form action="<?= base_url('welcome/login'); ?> " method="post">
+<!-- Tab panels -->
+<div class="tab-content">
 
-                <!--Body-->
-                <div class="md-form">
-                  <i class="fa fa-user prefix"></i>
-                  <input type="text" name="username" id="username" class="form-control">
-                  <label for="username">Username</label>
-                </div>
+    <!--Panel 1-->
+    <div class="tab-pane fade in active" id="panel5" role="tabpanel">
+        <br>
 
-                <div class="md-form">
-                  <i class="fa fa-lock prefix"></i>
-                  <input type="password" name="password" id="password" class="form-control">
-                  <label for="password">Password</label>
-                </div>
+        <form action="<?= base_url('welcome/login'); ?> " method="post">
 
-                <div class="text-xs-center">
-                  <button type="submit" class="btn btn-indigo">Login</button>
-                </div>
+          <!--Body-->
+          <div class="md-form">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" name="username" id="username" class="form-control">
+            <label for="username">Username</label>
+          </div>
 
-              </form>
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" name="password" id="password" class="form-control">
+            <label for="password">Password</label>
+          </div>
+
+          <div class="text-xs-center">
+            <button type="submit" class="btn btn-indigo">Login</button>
+          </div>
+
+        </form>
+
+    </div>
+    <!--/.Panel 1-->
+
+    <!--Panel 2-->
+    <div class="tab-pane fade" id="panel6" role="tabpanel">
+        <br>
+
+        <form action="<?= base_url('welcome/login2'); ?> " method="post">
+        
+          <!--Body-->
+          <div class="md-form">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" name="username" id="username" class="form-control">
+            <label for="username">Username</label>
+          </div>
+
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" name="password" id="password" class="form-control">
+            <label for="password">Password</label>
+          </div>
+
+          <div class="text-xs-center">
+            <button type="submit" class="btn btn-indigo">Login</button>
+          </div>
+
+        </form>
+
+    </div>
+    <!--/.Panel 2-->
+
+</div>
 
               </div>
             </div>
